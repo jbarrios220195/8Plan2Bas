@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizarra Digital Interactiva - Colegio Montano</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoAzul: '#1269A8',
+                        montanoAmarillo: '#F7D615',
+                        montanoVerdeGris: '#54887D',
+                        montanoAzulClaro: '#88B5C7',
+                        montanoVerdeOliva: '#A6B046',
+                        montanoFondo: '#F2F5E9',
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F2F5E9;
+            font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+        }
+        .tab-btn.active {
+            background-color: #1269A8;
+            color: #ffffff;
+            border-bottom: 4px solid #F7D615;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 flex flex-col justify-between p-2 sm:p-4">
+
+    <!-- ENCABEZADO INSTITUCIONAL -->
+    <header class="bg-white rounded-xl shadow-md border-b-4 border-montanoAmarillo p-4 mb-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" 
+                     alt="Logo Colegio Montano" 
+                     class="h-16 w-auto object-contain"
+                     onerror="this.src='https://placehold.co/120x60/1269A8/ffffff?text=Montano'">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-montanoAzul">COLEGIO MONTANO</h1>
+                    <p class="text-sm font-semibold text-montanoVerdeGris">PIZARRA DIGITAL INTERACTIVA - PLAN DE CLASE</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN PANTALLA COMPLETA & DATOS RÁPIDOS -->
+            <div class="flex flex-wrap items-center justify-end gap-3 w-full md:w-auto">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap items-center gap-2 text-xs md:text-sm">
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Curso:</span> Expresión Artística
+                    </div>
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Docente:</span> Jorge Barrios
+                    </div>
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Grado:</span> Segundo Básico
+                    </div>
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Unidad:</span> Primera
+                    </div>
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Plan No.:</span> 8
+                    </div>
+                    <div class="bg-montanoFondo px-3 py-1.5 rounded-lg border border-montanoAzulClaro font-medium text-gray-700">
+                        <span class="font-bold text-montanoAzul">Fecha:</span> 1 de marzo
+                    </div>
+                </div>
+                <button onclick="toggleFullScreen()" class="bg-montanoAzul hover:bg-opacity-90 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="hidden sm:inline">Pantalla Completa</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MARCO PEDAGÓGICO INSTITUCIONAL -->
+    <section class="bg-white rounded-xl shadow-md p-4 mb-4 border-l-4 border-montanoAzul">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            <!-- Competencia y Logro -->
+            <div class="bg-montanoFondo p-3 rounded-lg border border-montanoAzulClaro">
+                <h3 class="font-bold text-montanoAzul mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-bullseye text-montanoAmarillo"></i> Competencia & Logro
+                </h3>
+                <p class="mb-2"><strong>Competencia:</strong> Integra elementos de composición, creatividad y experimentación en obras gráficas propias.</p>
+                <p><strong>Indicador de logro:</strong> 3.2. Crea una obra de temática personal que evidencie decisiones autónomas de composición, color y técnica.</p>
+            </div>
+
+            <!-- Propósito y Hábitos -->
+            <div class="bg-montanoFondo p-3 rounded-lg border border-montanoAzulClaro">
+                <h3 class="font-bold text-montanoAzul mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-brain text-montanoVerdeOliva"></i> Propósito & Hábitos
+                </h3>
+                <p><strong>Propósito Intencional:</strong> Creatividad <i class="fa-solid fa-check text-green-600"></i></p>
+                <div class="mt-2">
+                    <strong>7 Hábitos Montano:</strong>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                        <span class="bg-montanoVerdeGris text-white text-xs px-2 py-0.5 rounded-full">Ser proactivo</span>
+                        <span class="bg-montanoVerdeGris text-white text-xs px-2 py-0.5 rounded-full">Comenzar con el fin en mente</span>
+                        <span class="bg-montanoVerdeGris text-white text-xs px-2 py-0.5 rounded-full">Poner primero lo primero</span>
+                        <span class="bg-montanoVerdeGris text-white text-xs px-2 py-0.5 rounded-full">Primero entender, luego ser entendido</span>
+                        <span class="bg-montanoVerdeOliva text-white text-xs px-2 py-0.5 rounded-full font-bold">Afilar la sierra ✓</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competencias CM -->
+            <div class="bg-montanoFondo p-3 rounded-lg border border-montanoAzulClaro md:col-span-2 lg:col-span-1">
+                <h3 class="font-bold text-montanoAzul mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-star text-montanoAmarillo"></i> Competencias CM (2023–2028)
+                </h3>
+                <ul class="list-disc list-inside text-xs space-y-1">
+                    <span class="inline-block bg-montanoAzul text-white px-2 py-0.5 rounded text-xs mb-1">Creatividad e innovación ✓</span>
+                    <span class="inline-block bg-montanoAzul text-white px-2 py-0.5 rounded text-xs mb-1">Aprendizaje autónomo y adaptabilidad ✓</span>
+                    <span class="inline-block bg-montanoAzul text-white px-2 py-0.5 rounded text-xs mb-1">Pensamiento crítico y resolución de problemas ✓</span>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVEGACIÓN DE PESTAÑAS - SECUENCIA DIDÁCTICA -->
+    <main class="bg-white rounded-xl shadow-lg border border-gray-200 flex-1 flex flex-col overflow-hidden mb-4">
+        <!-- BARRA DE PESTAÑAS -->
+        <div class="flex flex-wrap bg-gray-100 border-b border-gray-300">
+            <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn active flex-1 py-3 px-4 text-center text-sm md:text-base font-semibold text-gray-700 hover:bg-montanoAzulClaro hover:text-white transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-lightbulb"></i> Introducción Motivante (10 min)
+            </button>
+            <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn flex-1 py-3 px-4 text-center text-sm md:text-base font-semibold text-gray-700 hover:bg-montanoAzulClaro hover:text-white transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-user-pen"></i> Tarea Individual (45 min)
+            </button>
+            <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn flex-1 py-3 px-4 text-center text-sm md:text-base font-semibold text-gray-700 hover:bg-montanoAzulClaro hover:text-white transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-users"></i> Plenaria (5 min)
+            </button>
+        </div>
+
+        <!-- CONTENIDO DE LAS PESTAÑAS -->
+        <div class="p-6 flex-1 overflow-y-auto">
+            
+            <!-- PESTAÑA 1 -->
+            <div id="tab1" class="tab-content block space-y-4">
+                <div class="flex items-center justify-between border-b pb-2">
+                    <h2 class="text-xl font-bold text-montanoAzul">Introducción Motivante</h2>
+                    <span class="bg-montanoAmarillo text-gray-900 font-bold px-3 py-1 rounded-full text-sm">Tiempo: 10 minutos</span>
+                </div>
+                
+                <div class="bg-montanoFondo p-5 rounded-xl border-l-4 border-montanoAzul shadow-sm">
+                    <h3 class="font-bold text-lg text-montanoAzul mb-2"><i class="fa-solid fa-person-chalkboard"></i> Actividad:</h3>
+                    <p class="text-gray-800 text-lg leading-relaxed">
+                        El docente explica los criterios para una composición libre y recuerda las técnicas aprendidas.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-white border border-montanoAzulClaro rounded-lg shadow-sm">
+                    <h4 class="font-bold text-montanoVerdeGris mb-2"><i class="fa-solid fa-boxes-packing"></i> Recursos:</h4>
+                    <p class="text-gray-700">Imágenes de referencia, presentación y pizarra.</p>
+                </div>
+            </div>
+
+            <!-- PESTAÑA 2 -->
+            <div id="tab2" class="tab-content hidden space-y-4">
+                <div class="flex items-center justify-between border-b pb-2">
+                    <h2 class="text-xl font-bold text-montanoAzul">Tarea Individual</h2>
+                    <span class="bg-montanoAmarillo text-gray-900 font-bold px-3 py-1 rounded-full text-sm">Tiempo: 45 minutos</span>
+                </div>
+
+                <div class="bg-montanoFondo p-5 rounded-xl border-l-4 border-montanoVerdeGris shadow-sm">
+                    <h3 class="font-bold text-lg text-montanoAzul mb-2"><i class="fa-solid fa-paintbrush"></i> Actividad:</h3>
+                    <p class="text-gray-800 text-lg leading-relaxed">
+                        Cada estudiante elabora una obra personal aplicando una técnica artística estudiada.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-white border border-montanoAzulClaro rounded-lg shadow-sm">
+                    <h4 class="font-bold text-montanoVerdeGris mb-2"><i class="fa-solid fa-toolbox"></i> Recursos:</h4>
+                    <p class="text-gray-700">Hoja de dibujo, lápiz, borrador, crayones de madera y marcadores.</p>
+                </div>
+            </div>
+
+            <!-- PESTAÑA 3 -->
+            <div id="tab3" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between border-b pb-2">
+                    <h2 class="text-xl font-bold text-montanoAzul">Plenaria</h2>
+                    <span class="bg-montanoAmarillo text-gray-900 font-bold px-3 py-1 rounded-full text-sm">Tiempo: 5 minutos</span>
+                </div>
+
+                <div class="bg-montanoFondo p-5 rounded-xl border-l-4 border-montanoVerdeOliva shadow-sm">
+                    <h3 class="font-bold text-lg text-montanoAzul mb-2"><i class="fa-solid fa-comments"></i> Actividad:</h3>
+                    <p class="text-gray-800 text-lg leading-relaxed">
+                        Dos estudiantes muestran su trabajo y comentan una característica del tema. El docente ofrece retroalimentación breve.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-white border border-montanoAzulClaro rounded-lg shadow-sm">
+                    <h4 class="font-bold text-montanoVerdeGris mb-2"><i class="fa-solid fa-image"></i> Recursos:</h4>
+                    <p class="text-gray-700">Obras realizadas por los estudiantes.</p>
+                </div>
+
+                <!-- INSTRUMENTO DE EVALUACIÓN INTEGRADO EN LA PLENARIA -->
+                <div class="mt-6 pt-4 border-t border-gray-200">
+                    <h3 class="text-lg font-bold text-montanoAzul mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-check text-montanoVerdeGris"></i> Lista de Cotejo de la Plenaria
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
+                            <thead>
+                                <tr class="bg-montanoAzul text-white text-xs md:text-sm">
+                                    <th class="p-3">Criterio de Evaluación</th>
+                                    <th class="p-3 text-center w-24">Cumple</th>
+                                    <th class="p-3">Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-xs md:text-sm">
+                                <tr class="hover:bg-montanoFondo">
+                                    <td class="p-3 font-medium">1. El estudiante muestra su obra personal evidenciando decisiones autónomas de composición y técnica estudiada.</td>
+                                    <td class="p-3 text-center">
+                                        <input type="checkbox" class="w-5 h-5 text-montanoAzul rounded focus:ring-montanoAzul">
+                                    </td>
+                                    <td class="p-3">
+                                        <input type="text" placeholder="Añadir comentario..." class="w-full p-1 border rounded text-xs bg-gray-50">
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-montanoFondo">
+                                    <td class="p-3 font-medium">2. Comenta con claridad al menos una característica clave del tema expuesto.</td>
+                                    <td class="p-3 text-center">
+                                        <input type="checkbox" class="w-5 h-5 text-montanoAzul rounded focus:ring-montanoAzul">
+                                    </td>
+                                    <td class="p-3">
+                                        <input type="text" placeholder="Añadir comentario..." class="w-full p-1 border rounded text-xs bg-gray-50">
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-montanoFondo">
+                                    <td class="p-3 font-medium">3. Recibe y atiende la retroalimentación breve del docente.</td>
+                                    <td class="p-3 text-center">
+                                        <input type="checkbox" class="w-5 h-5 text-montanoAzul rounded focus:ring-montanoAzul">
+                                    </td>
+                                    <td class="p-3">
+                                        <input type="text" placeholder="Añadir comentario..." class="w-full p-1 border rounded text-xs bg-gray-50">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="text-center text-xs text-gray-500 py-2">
+        <p>Modelo Formativo Colegio Montano &copy; 2027 — Pizarra Digital Interactiva</p>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT DE LA PIZARRA -->
+    <script>
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+                selectedTab.classList.add('block');
+            }
+
+            const selectedBtn = document.getElementById('btn-' + tabId);
+            if (selectedBtn) {
+                selectedBtn.classList.add('active');
+            }
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error al intentar activar pantalla completa: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
